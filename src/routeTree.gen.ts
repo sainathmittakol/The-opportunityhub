@@ -10,33 +10,272 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as CoursesRouteImport } from './routes/courses'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as HackathonsRouteImport } from './routes/hackathons'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as InternshipsRouteImport } from './routes/internships'
+import { Route as JobsRouteImport } from './routes/jobs'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedApplicationsRouteImport } from './routes/_authenticated/applications'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedNotificationsRouteImport } from './routes/_authenticated/notifications'
+import { Route as AuthenticatedOnboardingRouteImport } from './routes/_authenticated/onboarding'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedResumeRouteImport } from './routes/_authenticated/resume'
+import { Route as AuthenticatedSavedRouteImport } from './routes/_authenticated/saved'
+import { Route as AuthenticatedSkillGapRouteImport } from './routes/_authenticated/skill-gap'
+import { Route as OpportunityIdRouteImport } from './routes/opportunity.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesRoute = CoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackathonsRoute = HackathonsRouteImport.update({
+  id: '/hackathons',
+  path: '/hackathons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InternshipsRoute = InternshipsRouteImport.update({
+  id: '/internships',
+  path: '/internships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsRoute = JobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedApplicationsRoute =
+  AuthenticatedApplicationsRouteImport.update({
+    id: '/applications',
+    path: '/applications',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedNotificationsRoute =
+  AuthenticatedNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOnboardingRoute = AuthenticatedOnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedResumeRoute = AuthenticatedResumeRouteImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSavedRoute = AuthenticatedSavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSkillGapRoute = AuthenticatedSkillGapRouteImport.update({
+  id: '/skill-gap',
+  path: '/skill-gap',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const OpportunityIdRoute = OpportunityIdRouteImport.update({
+  id: '/opportunity/$id',
+  path: '/opportunity/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/courses': typeof CoursesRoute
+  '/explore': typeof ExploreRoute
+  '/hackathons': typeof HackathonsRoute
+  '/help': typeof HelpRoute
+  '/internships': typeof InternshipsRoute
+  '/jobs': typeof JobsRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/applications': typeof AuthenticatedApplicationsRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
+  '/onboarding': typeof AuthenticatedOnboardingRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/resume': typeof AuthenticatedResumeRoute
+  '/saved': typeof AuthenticatedSavedRoute
+  '/skill-gap': typeof AuthenticatedSkillGapRoute
+  '/opportunity/$id': typeof OpportunityIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/courses': typeof CoursesRoute
+  '/explore': typeof ExploreRoute
+  '/hackathons': typeof HackathonsRoute
+  '/help': typeof HelpRoute
+  '/internships': typeof InternshipsRoute
+  '/jobs': typeof JobsRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/applications': typeof AuthenticatedApplicationsRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
+  '/onboarding': typeof AuthenticatedOnboardingRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/resume': typeof AuthenticatedResumeRoute
+  '/saved': typeof AuthenticatedSavedRoute
+  '/skill-gap': typeof AuthenticatedSkillGapRoute
+  '/opportunity/$id': typeof OpportunityIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/courses': typeof CoursesRoute
+  '/explore': typeof ExploreRoute
+  '/hackathons': typeof HackathonsRoute
+  '/help': typeof HelpRoute
+  '/internships': typeof InternshipsRoute
+  '/jobs': typeof JobsRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/applications': typeof AuthenticatedApplicationsRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/notifications': typeof AuthenticatedNotificationsRoute
+  '/_authenticated/onboarding': typeof AuthenticatedOnboardingRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
+  '/_authenticated/resume': typeof AuthenticatedResumeRoute
+  '/_authenticated/saved': typeof AuthenticatedSavedRoute
+  '/_authenticated/skill-gap': typeof AuthenticatedSkillGapRoute
+  '/opportunity/$id': typeof OpportunityIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/courses'
+    | '/explore'
+    | '/hackathons'
+    | '/help'
+    | '/internships'
+    | '/jobs'
+    | '/login'
+    | '/signup'
+    | '/admin'
+    | '/applications'
+    | '/dashboard'
+    | '/notifications'
+    | '/onboarding'
+    | '/profile'
+    | '/resume'
+    | '/saved'
+    | '/skill-gap'
+    | '/opportunity/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/courses'
+    | '/explore'
+    | '/hackathons'
+    | '/help'
+    | '/internships'
+    | '/jobs'
+    | '/login'
+    | '/signup'
+    | '/admin'
+    | '/applications'
+    | '/dashboard'
+    | '/notifications'
+    | '/onboarding'
+    | '/profile'
+    | '/resume'
+    | '/saved'
+    | '/skill-gap'
+    | '/opportunity/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/courses'
+    | '/explore'
+    | '/hackathons'
+    | '/help'
+    | '/internships'
+    | '/jobs'
+    | '/login'
+    | '/signup'
+    | '/_authenticated/admin'
+    | '/_authenticated/applications'
+    | '/_authenticated/dashboard'
+    | '/_authenticated/notifications'
+    | '/_authenticated/onboarding'
+    | '/_authenticated/profile'
+    | '/_authenticated/resume'
+    | '/_authenticated/saved'
+    | '/_authenticated/skill-gap'
+    | '/opportunity/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  CoursesRoute: typeof CoursesRoute
+  ExploreRoute: typeof ExploreRoute
+  HackathonsRoute: typeof HackathonsRoute
+  HelpRoute: typeof HelpRoute
+  InternshipsRoute: typeof InternshipsRoute
+  JobsRoute: typeof JobsRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
+  OpportunityIdRoute: typeof OpportunityIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +287,181 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses': {
+      id: '/courses'
+      path: '/courses'
+      fullPath: '/courses'
+      preLoaderRoute: typeof CoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hackathons': {
+      id: '/hackathons'
+      path: '/hackathons'
+      fullPath: '/hackathons'
+      preLoaderRoute: typeof HackathonsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/internships': {
+      id: '/internships'
+      path: '/internships'
+      fullPath: '/internships'
+      preLoaderRoute: typeof InternshipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs': {
+      id: '/jobs'
+      path: '/jobs'
+      fullPath: '/jobs'
+      preLoaderRoute: typeof JobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/applications': {
+      id: '/_authenticated/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof AuthenticatedApplicationsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/notifications': {
+      id: '/_authenticated/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof AuthenticatedNotificationsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/onboarding': {
+      id: '/_authenticated/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof AuthenticatedOnboardingRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/resume': {
+      id: '/_authenticated/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof AuthenticatedResumeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/saved': {
+      id: '/_authenticated/saved'
+      path: '/saved'
+      fullPath: '/saved'
+      preLoaderRoute: typeof AuthenticatedSavedRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/skill-gap': {
+      id: '/_authenticated/skill-gap'
+      path: '/skill-gap'
+      fullPath: '/skill-gap'
+      preLoaderRoute: typeof AuthenticatedSkillGapRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/opportunity/$id': {
+      id: '/opportunity/$id'
+      path: '/opportunity/$id'
+      fullPath: '/opportunity/$id'
+      preLoaderRoute: typeof OpportunityIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedApplicationsRoute: typeof AuthenticatedApplicationsRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
+  AuthenticatedOnboardingRoute: typeof AuthenticatedOnboardingRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
+  AuthenticatedResumeRoute: typeof AuthenticatedResumeRoute
+  AuthenticatedSavedRoute: typeof AuthenticatedSavedRoute
+  AuthenticatedSkillGapRoute: typeof AuthenticatedSkillGapRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedApplicationsRoute: AuthenticatedApplicationsRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
+  AuthenticatedOnboardingRoute: AuthenticatedOnboardingRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
+  AuthenticatedResumeRoute: AuthenticatedResumeRoute,
+  AuthenticatedSavedRoute: AuthenticatedSavedRoute,
+  AuthenticatedSkillGapRoute: AuthenticatedSkillGapRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  CoursesRoute: CoursesRoute,
+  ExploreRoute: ExploreRoute,
+  HackathonsRoute: HackathonsRoute,
+  HelpRoute: HelpRoute,
+  InternshipsRoute: InternshipsRoute,
+  JobsRoute: JobsRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
+  OpportunityIdRoute: OpportunityIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
