@@ -14,14 +14,20 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as HackathonsRouteImport } from './routes/hackathons'
+import { Route as HelpRouteImport } from './routes/help'
 import { Route as InternshipsRouteImport } from './routes/internships'
 import { Route as JobsRouteImport } from './routes/jobs'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedApplicationsRouteImport } from './routes/_authenticated/applications'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedNotificationsRouteImport } from './routes/_authenticated/notifications'
+import { Route as AuthenticatedOnboardingRouteImport } from './routes/_authenticated/onboarding'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedResumeRouteImport } from './routes/_authenticated/resume'
 import { Route as AuthenticatedSavedRouteImport } from './routes/_authenticated/saved'
+import { Route as AuthenticatedSkillGapRouteImport } from './routes/_authenticated/skill-gap'
 import { Route as OpportunityIdRouteImport } from './routes/opportunity.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -48,6 +54,11 @@ const HackathonsRoute = HackathonsRouteImport.update({
   path: '/hackathons',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InternshipsRoute = InternshipsRouteImport.update({
   id: '/internships',
   path: '/internships',
@@ -68,6 +79,11 @@ const SignupRoute = SignupRouteImport.update({
   path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedApplicationsRoute =
   AuthenticatedApplicationsRouteImport.update({
     id: '/applications',
@@ -85,9 +101,29 @@ const AuthenticatedNotificationsRoute =
     path: '/notifications',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedOnboardingRoute = AuthenticatedOnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedResumeRoute = AuthenticatedResumeRouteImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedSavedRoute = AuthenticatedSavedRouteImport.update({
   id: '/saved',
   path: '/saved',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSkillGapRoute = AuthenticatedSkillGapRouteImport.update({
+  id: '/skill-gap',
+  path: '/skill-gap',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const OpportunityIdRoute = OpportunityIdRouteImport.update({
@@ -101,14 +137,20 @@ export interface FileRoutesByFullPath {
   '/courses': typeof CoursesRoute
   '/explore': typeof ExploreRoute
   '/hackathons': typeof HackathonsRoute
+  '/help': typeof HelpRoute
   '/internships': typeof InternshipsRoute
   '/jobs': typeof JobsRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/applications': typeof AuthenticatedApplicationsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/notifications': typeof AuthenticatedNotificationsRoute
+  '/onboarding': typeof AuthenticatedOnboardingRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/resume': typeof AuthenticatedResumeRoute
   '/saved': typeof AuthenticatedSavedRoute
+  '/skill-gap': typeof AuthenticatedSkillGapRoute
   '/opportunity/$id': typeof OpportunityIdRoute
 }
 export interface FileRoutesByTo {
@@ -116,14 +158,20 @@ export interface FileRoutesByTo {
   '/courses': typeof CoursesRoute
   '/explore': typeof ExploreRoute
   '/hackathons': typeof HackathonsRoute
+  '/help': typeof HelpRoute
   '/internships': typeof InternshipsRoute
   '/jobs': typeof JobsRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/applications': typeof AuthenticatedApplicationsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/notifications': typeof AuthenticatedNotificationsRoute
+  '/onboarding': typeof AuthenticatedOnboardingRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/resume': typeof AuthenticatedResumeRoute
   '/saved': typeof AuthenticatedSavedRoute
+  '/skill-gap': typeof AuthenticatedSkillGapRoute
   '/opportunity/$id': typeof OpportunityIdRoute
 }
 export interface FileRoutesById {
@@ -133,14 +181,20 @@ export interface FileRoutesById {
   '/courses': typeof CoursesRoute
   '/explore': typeof ExploreRoute
   '/hackathons': typeof HackathonsRoute
+  '/help': typeof HelpRoute
   '/internships': typeof InternshipsRoute
   '/jobs': typeof JobsRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/applications': typeof AuthenticatedApplicationsRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/notifications': typeof AuthenticatedNotificationsRoute
+  '/_authenticated/onboarding': typeof AuthenticatedOnboardingRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
+  '/_authenticated/resume': typeof AuthenticatedResumeRoute
   '/_authenticated/saved': typeof AuthenticatedSavedRoute
+  '/_authenticated/skill-gap': typeof AuthenticatedSkillGapRoute
   '/opportunity/$id': typeof OpportunityIdRoute
 }
 export interface FileRouteTypes {
@@ -150,14 +204,20 @@ export interface FileRouteTypes {
     | '/courses'
     | '/explore'
     | '/hackathons'
+    | '/help'
     | '/internships'
     | '/jobs'
     | '/login'
     | '/signup'
+    | '/admin'
     | '/applications'
     | '/dashboard'
     | '/notifications'
+    | '/onboarding'
+    | '/profile'
+    | '/resume'
     | '/saved'
+    | '/skill-gap'
     | '/opportunity/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -165,14 +225,20 @@ export interface FileRouteTypes {
     | '/courses'
     | '/explore'
     | '/hackathons'
+    | '/help'
     | '/internships'
     | '/jobs'
     | '/login'
     | '/signup'
+    | '/admin'
     | '/applications'
     | '/dashboard'
     | '/notifications'
+    | '/onboarding'
+    | '/profile'
+    | '/resume'
     | '/saved'
+    | '/skill-gap'
     | '/opportunity/$id'
   id:
     | '__root__'
@@ -181,14 +247,20 @@ export interface FileRouteTypes {
     | '/courses'
     | '/explore'
     | '/hackathons'
+    | '/help'
     | '/internships'
     | '/jobs'
     | '/login'
     | '/signup'
+    | '/_authenticated/admin'
     | '/_authenticated/applications'
     | '/_authenticated/dashboard'
     | '/_authenticated/notifications'
+    | '/_authenticated/onboarding'
+    | '/_authenticated/profile'
+    | '/_authenticated/resume'
     | '/_authenticated/saved'
+    | '/_authenticated/skill-gap'
     | '/opportunity/$id'
   fileRoutesById: FileRoutesById
 }
@@ -198,6 +270,7 @@ export interface RootRouteChildren {
   CoursesRoute: typeof CoursesRoute
   ExploreRoute: typeof ExploreRoute
   HackathonsRoute: typeof HackathonsRoute
+  HelpRoute: typeof HelpRoute
   InternshipsRoute: typeof InternshipsRoute
   JobsRoute: typeof JobsRoute
   LoginRoute: typeof LoginRoute
@@ -242,6 +315,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HackathonsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/internships': {
       id: '/internships'
       path: '/internships'
@@ -270,6 +350,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/applications': {
       id: '/_authenticated/applications'
       path: '/applications'
@@ -291,11 +378,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedNotificationsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/onboarding': {
+      id: '/_authenticated/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof AuthenticatedOnboardingRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/resume': {
+      id: '/_authenticated/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof AuthenticatedResumeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/saved': {
       id: '/_authenticated/saved'
       path: '/saved'
       fullPath: '/saved'
       preLoaderRoute: typeof AuthenticatedSavedRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/skill-gap': {
+      id: '/_authenticated/skill-gap'
+      path: '/skill-gap'
+      fullPath: '/skill-gap'
+      preLoaderRoute: typeof AuthenticatedSkillGapRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/opportunity/$id': {
@@ -309,17 +424,27 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedApplicationsRoute: typeof AuthenticatedApplicationsRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
+  AuthenticatedOnboardingRoute: typeof AuthenticatedOnboardingRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
+  AuthenticatedResumeRoute: typeof AuthenticatedResumeRoute
   AuthenticatedSavedRoute: typeof AuthenticatedSavedRoute
+  AuthenticatedSkillGapRoute: typeof AuthenticatedSkillGapRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedApplicationsRoute: AuthenticatedApplicationsRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
+  AuthenticatedOnboardingRoute: AuthenticatedOnboardingRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
+  AuthenticatedResumeRoute: AuthenticatedResumeRoute,
   AuthenticatedSavedRoute: AuthenticatedSavedRoute,
+  AuthenticatedSkillGapRoute: AuthenticatedSkillGapRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
@@ -331,6 +456,7 @@ const rootRouteChildren: RootRouteChildren = {
   CoursesRoute: CoursesRoute,
   ExploreRoute: ExploreRoute,
   HackathonsRoute: HackathonsRoute,
+  HelpRoute: HelpRoute,
   InternshipsRoute: InternshipsRoute,
   JobsRoute: JobsRoute,
   LoginRoute: LoginRoute,
