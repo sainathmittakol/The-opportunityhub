@@ -17,7 +17,6 @@ import { Button } from "@/components/ui/button";
 import { OpportunityCard } from "@/components/opportunity/OpportunityCard";
 import { CardSkeletonGrid, ErrorState } from "@/components/states";
 import { fetchFeatured } from "@/lib/data";
-import heroImage from "@/assets/hero.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -89,14 +88,33 @@ function Landing() {
               No account needed to browse. Sign in when you want to save, track and analyse.
             </p>
           </div>
-          <div className="relative">
-            <img
-              src={heroImage}
-              alt="Students collaborating on laptops while reviewing opportunity listings"
-              className="w-full rounded-2xl border border-border object-cover shadow-2xl"
-              width={1200}
-              height={900}
-            />
+          <div className="panel grid-ink relative space-y-4 p-6">
+            <p className="text-sm text-muted-foreground">Today on OpportunityHub</p>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { k: "Internships", v: "Fresher friendly" },
+                { k: "Hackathons", v: "Prizes & teams" },
+                { k: "Courses", v: "Free options" },
+                { k: "Jobs", v: "Remote & hybrid" },
+              ].map((s) => (
+                <div key={s.k} className="rounded-xl border border-border bg-card p-4">
+                  <p className="font-display font-semibold">{s.k}</p>
+                  <p className="text-sm text-muted-foreground">{s.v}</p>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-xl border border-border bg-card p-4">
+              <div className="flex items-center justify-between text-sm">
+                <span className="font-medium">Your Match</span>
+                <span className="font-display text-xl text-primary">87%</span>
+              </div>
+              <div className="mt-2 h-2 rounded-full bg-muted">
+                <div className="h-2 w-[87%] rounded-full bg-primary" />
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Example of the transparent, rule-based match breakdown you get on every listing.
+              </p>
+            </div>
           </div>
         </div>
       </section>
