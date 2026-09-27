@@ -267,7 +267,7 @@ function OpportunityDetail() {
 
           {match ? (
             <div className="panel p-5">
-              <MatchBreakdown result={match} />
+              <MatchBreakdown match={match} />
             </div>
           ) : user ? (
             <div className="panel space-y-2 p-5 text-sm">
