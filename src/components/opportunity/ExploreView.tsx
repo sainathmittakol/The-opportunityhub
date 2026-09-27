@@ -136,7 +136,7 @@ export function ExploreView({
                     key={row.id}
                     opportunity={row}
                     saved={savedIds?.has(row.id) ?? false}
-                    matchScore={score}
+                    {...(score !== undefined ? { matchScore: score } : {})}
                   />
                 ))}
               </div>

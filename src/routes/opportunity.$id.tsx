@@ -122,7 +122,7 @@ function OpportunityDetail() {
   }
 
   const skills = skillNames(o);
-  const expired = isExpired(o.deadline) || o.status === "expired";
+  const expired = isExpired(o) || o.status === "expired";
   const saved = savedIds?.has(o.id) ?? false;
   const match = matcher ? matcher({ ...o, skills }) : null;
 

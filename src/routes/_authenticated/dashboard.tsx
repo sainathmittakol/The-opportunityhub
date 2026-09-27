@@ -128,7 +128,7 @@ function Dashboard() {
               key={row.id}
               opportunity={row}
               saved={savedIds?.has(row.id) ?? false}
-              matchScore={matcher ? score : undefined}
+              {...(matcher ? { matchScore: score } : {})}
             />
           ))}
         </div>
