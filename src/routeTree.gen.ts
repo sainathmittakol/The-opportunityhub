@@ -18,7 +18,9 @@ import { Route as InternshipsRouteImport } from './routes/internships'
 import { Route as JobsRouteImport } from './routes/jobs'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as AuthenticatedApplicationsRouteImport } from './routes/_authenticated/applications'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedNotificationsRouteImport } from './routes/_authenticated/notifications'
 import { Route as AuthenticatedSavedRouteImport } from './routes/_authenticated/saved'
 import { Route as OpportunityIdRouteImport } from './routes/opportunity.$id'
 
@@ -66,11 +68,23 @@ const SignupRoute = SignupRouteImport.update({
   path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedApplicationsRoute =
+  AuthenticatedApplicationsRouteImport.update({
+    id: '/applications',
+    path: '/applications',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedNotificationsRoute =
+  AuthenticatedNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedSavedRoute = AuthenticatedSavedRouteImport.update({
   id: '/saved',
   path: '/saved',
@@ -91,7 +105,9 @@ export interface FileRoutesByFullPath {
   '/jobs': typeof JobsRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/applications': typeof AuthenticatedApplicationsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
   '/saved': typeof AuthenticatedSavedRoute
   '/opportunity/$id': typeof OpportunityIdRoute
 }
@@ -104,7 +120,9 @@ export interface FileRoutesByTo {
   '/jobs': typeof JobsRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/applications': typeof AuthenticatedApplicationsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
   '/saved': typeof AuthenticatedSavedRoute
   '/opportunity/$id': typeof OpportunityIdRoute
 }
@@ -119,7 +137,9 @@ export interface FileRoutesById {
   '/jobs': typeof JobsRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/_authenticated/applications': typeof AuthenticatedApplicationsRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/notifications': typeof AuthenticatedNotificationsRoute
   '/_authenticated/saved': typeof AuthenticatedSavedRoute
   '/opportunity/$id': typeof OpportunityIdRoute
 }
@@ -134,7 +154,9 @@ export interface FileRouteTypes {
     | '/jobs'
     | '/login'
     | '/signup'
+    | '/applications'
     | '/dashboard'
+    | '/notifications'
     | '/saved'
     | '/opportunity/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -147,7 +169,9 @@ export interface FileRouteTypes {
     | '/jobs'
     | '/login'
     | '/signup'
+    | '/applications'
     | '/dashboard'
+    | '/notifications'
     | '/saved'
     | '/opportunity/$id'
   id:
@@ -161,7 +185,9 @@ export interface FileRouteTypes {
     | '/jobs'
     | '/login'
     | '/signup'
+    | '/_authenticated/applications'
     | '/_authenticated/dashboard'
+    | '/_authenticated/notifications'
     | '/_authenticated/saved'
     | '/opportunity/$id'
   fileRoutesById: FileRoutesById
@@ -244,11 +270,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/applications': {
+      id: '/_authenticated/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof AuthenticatedApplicationsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/notifications': {
+      id: '/_authenticated/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof AuthenticatedNotificationsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/saved': {
@@ -269,12 +309,16 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedApplicationsRoute: typeof AuthenticatedApplicationsRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
   AuthenticatedSavedRoute: typeof AuthenticatedSavedRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedApplicationsRoute: AuthenticatedApplicationsRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
   AuthenticatedSavedRoute: AuthenticatedSavedRoute,
 }
 
